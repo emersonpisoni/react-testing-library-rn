@@ -30,6 +30,13 @@ export default function TabLayout() {
           tabBarIcon: ({ color }) => <IconSymbol size={28} name="paperplane.fill" color={color} />,
         }}
       />
+      <Tabs.Screen
+        name="todo"
+        options={{
+          title: 'Todo',
+          tabBarIcon: ({ color }) => <IconSymbol size={28} name="paperclip.circle.fill" color={color} />,
+        }}
+      />
     </Tabs>
   );
 }
