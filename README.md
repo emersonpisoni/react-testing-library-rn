@@ -44,4 +44,20 @@ To learn more about developing your project with Expo, look at the following res
 
 ## Learnings
 
+### React Native
+
+- React Native setup with Expo
 - Expo router is file-based for default
+
+### Testing
+
+- Test behavior and not data with RTL
+- Simple tests with render, fire events, etc..
+- Async tests with `waitFor` or `findBy...`
+   - It handles setState effects automatically
+- Test resolved and rejected api calls
+
+### Todos
+- Navigation tests
+- Test coverage
+- Custom hooks testing
