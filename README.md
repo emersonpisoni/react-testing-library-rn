@@ -44,6 +44,10 @@ To learn more about developing your project with Expo, look at the following res
 
 ## Learnings
 
+<video width="300" height="500" controls>
+  <source src="./assets/videos/todo.mp4" type="video/mp4">
+</video>
+
 ### React Native
 
 - React Native setup with Expo
