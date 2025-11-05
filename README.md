@@ -48,6 +48,11 @@ To learn more about developing your project with Expo, look at the following res
   <source src="./assets/videos/todo.mp4" type="video/mp4">
 </video>
 
+## Questions to answer
+- Why use fireEvent and not use just document.getElementById("myElement").click()?
+- Do awaitFor and findBy the same thing?
+- Is act mandatory for testing react?
+
 ### React Native
 
 - React Native setup with Expo
