@@ -50,8 +50,14 @@ To learn more about developing your project with Expo, look at the following res
 
 ## Questions to answer
 - Why use fireEvent and not use just document.getElementById("myElement").click()?
-- Do awaitFor and findBy the same thing?
+   - That is the way similar to user interactions in interface, if you do not do this, the React will not understand the event, and the lifecycle will not be triggered.
+- Do waitFor and findBy the same thing?
+   - They are pretty similar, findBy is a shortcase for waitFor, but with waitFor you can cover more use cases like:
+      - Wait an element to disappear
+      - Multiple conditions
+      - Wait a custom promise
 - Is act mandatory for testing react?
+   - It is mandatory in all cases that you have to wait React to complete its lifecycle, but in some cases like in fireEvents and findBySomething you do not need to explicit this, because it is already been done by RTL.
 
 ### React Native
 
