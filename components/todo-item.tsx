@@ -1,16 +1,20 @@
+import { useRouter } from 'expo-router';
 import React from 'react';
-import { Button, Text, View } from 'react-native';
+import { Pressable, Text, View } from 'react-native';
 
 type Props = {
   title: string;
   onDelete: () => void;
+  id: number;
   testID?: string;
 };
 
-export default function TodoItem({ title, onDelete, testID }: Props) {
+export default function TodoItem({ title, onDelete, id }: Props) {
+  const router = useRouter();
+
   return (
     <View
-      testID={testID}
+      testID={`todo-${id}`}
       style={{
         flexDirection: 'row',
         justifyContent: 'space-between',
@@ -19,8 +23,15 @@ export default function TodoItem({ title, onDelete, testID }: Props) {
         paddingVertical: 4,
       }}
     >
-      <Text>{title}</Text>
-      <Button title="Remove" onPress={onDelete} />
+      <Pressable onPress={() => router.push({ pathname: '/details/[id]', params: { id: String(id) } })}>
+        <Text>{title}</Text>
+      </Pressable>
+      <Pressable
+        onPress={onDelete}
+        testID={`delete-${id}`}
+      >
+        <Text style={{ color: 'red' }}>Delete</Text>
+      </Pressable>
     </View>
   );
 }

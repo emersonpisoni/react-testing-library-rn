@@ -89,6 +89,7 @@ export default function TodoListScreen() {
             title={item.title}
             onDelete={() => removeTask(index)}
             testID={`todo-${index}`}
+            id={index + 1}
           />
         )}
       />
