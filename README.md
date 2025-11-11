@@ -71,6 +71,9 @@ To learn more about developing your project with Expo, look at the following res
 - Async tests with `waitFor` or `findBy...`
    - It handles setState effects automatically
 - Test resolved and rejected api calls
+- Navigation tests
+- Custom hooks testing
+   - https://react-hooks-testing-library.com/
 
 ### Todos
 - Navigation tests
