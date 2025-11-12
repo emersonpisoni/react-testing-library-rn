@@ -1,46 +1,15 @@
-# Welcome to your Expo app 👋
+## Testing fundamentals
 
-This is an [Expo](https://expo.dev) project created with [`create-expo-app`](https://www.npmjs.com/package/create-expo-app).
+Testing Tropy (Kent C. Dodds):
 
-## Get started
+![alt text](/assets/images/image.png)
 
-1. Install dependencies
+![alt text](/assets/images/image-1.png)
 
-   ```bash
-   npm install
-   ```
+## What types of tests RNTL cover?
 
-2. Start the app
-
-   ```bash
-   npx expo start
-   ```
-
-In the output, you'll find options to open the app in a
-
-- [development build](https://docs.expo.dev/develop/development-builds/introduction/)
-- [Android emulator](https://docs.expo.dev/workflow/android-studio-emulator/)
-- [iOS simulator](https://docs.expo.dev/workflow/ios-simulator/)
-- [Expo Go](https://expo.dev/go), a limited sandbox for trying out app development with Expo
-
-You can start developing by editing the files inside the **app** directory. This project uses [file-based routing](https://docs.expo.dev/router/introduction).
-
-## Get a fresh project
-
-When you're ready, run:
-
-```bash
-npm run reset-project
-```
-
-This command will move the starter code to the **app-example** directory and create a blank **app** directory where you can start developing.
-
-## Learn more
-
-To learn more about developing your project with Expo, look at the following resources:
-
-- [Expo documentation](https://docs.expo.dev/): Learn fundamentals, or go into advanced topics with our [guides](https://docs.expo.dev/guides).
-- [Learn Expo tutorial](https://docs.expo.dev/tutorial/introduction/): Follow a step-by-step tutorial where you'll create a project that runs on Android, iOS, and the web.
+- Unit
+- Integration
 
 ## Learnings
 
@@ -52,7 +21,7 @@ To learn more about developing your project with Expo, look at the following res
 - Why use fireEvent and not use just document.getElementById("myElement").click()?
    - That is the way similar to user interactions in interface, if you do not do this, the React will not understand the event, and the lifecycle will not be triggered.
 - Do waitFor and findBy the same thing?
-   - They are pretty similar, findBy is a shortcase for waitFor, but with waitFor you can cover more use cases like:
+   - They are pretty similar, findBy are a combination of getBy queries and waitFor:
       - Wait an element to disappear
       - Multiple conditions
       - Wait a custom promise
