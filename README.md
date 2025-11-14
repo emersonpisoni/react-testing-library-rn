@@ -20,11 +20,12 @@ Testing Tropy (Kent C. Dodds):
 ## Questions to answer
 - Why use fireEvent and not use just document.getElementById("myElement").click()?
    - That is the way similar to user interactions in interface, if you do not do this, the React will not understand the event, and the lifecycle will not be triggered.
-- Do waitFor and findBy the same thing?
-   - They are pretty similar, findBy are a combination of getBy queries and waitFor:
-      - Wait an element to disappear
-      - Multiple conditions
-      - Wait a custom promise
+- What is the difference between using a await waitFor or await someAsyncSelector?
+   - someAsyncSelector (i.e.: findByText) is a combination of getBy... and waitFor, this selector works when you expect an element to appear but the change to the DOM might not happen immediately
+   - waitFor can do exactly the same thing of findBy queries, but it is more than just it. It can:
+      - Waits for elements to disappear
+      - wait style changes
+      - multiple async conditions
 - Is act mandatory for testing react?
    - It is mandatory in all cases that you have to wait React to complete its lifecycle, but in some cases like in fireEvents and findBySomething you do not need to explicit this, because it is already been done by RTL.
 

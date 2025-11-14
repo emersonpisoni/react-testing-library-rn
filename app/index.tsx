@@ -14,23 +14,22 @@ export default function TodoListScreen() {
   useEffect(() => {
     async function fetchTodos() {
       try {
-        console.log('Fetching todos from API...');
         const response = await fakeApiWithFetch();
         if (!response.ok) throw new Error('Network error');
         const data = await response.json();
 
-        console.log('Fetched todos:', data);
+        await new Promise((resolve) => {
+          setTimeout(resolve, 2000);
+        });
 
         setTodos(data);
         setTask({ id: data.length + 1, title: '' });
-      } catch (err) {
-        console.error('Error fetching todos:', err);
+      } catch {
         setError('Failed to load tasks');
       } finally {
         setLoading(false);
       }
     }
-
     fetchTodos();
   }, []);
 
@@ -43,7 +42,11 @@ export default function TodoListScreen() {
 
   function removeTask(index: number) {
     setTodos((prev) => prev.filter((_, i) => i !== index));
-  };
+  }
+
+  function clearTasks() {
+    setTodos([]);
+  }
 
   if (loading) {
     return (
@@ -58,39 +61,28 @@ export default function TodoListScreen() {
     return (
       <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
         <Text>{error}</Text>
+        <Button title="Retry" onPress={() => setError(null)} />
       </View>
     );
   }
 
   return (
-    <View style={{ flex: 1, padding: 16, backgroundColor: '#fff' }}>
-      <Text accessibilityRole="header" style={{ fontSize: 20, fontWeight: 'bold' }}>
-        Todo List
-      </Text>
+    <View style={{ flex: 1, padding: 16 }}>
+      <Text accessibilityRole="header">Todo List</Text>
       <TextInput
         placeholder="Type a task"
         value={task.title}
         onChangeText={(text) => setTask({ ...task, title: text })}
         testID="input-task"
-        style={{
-          borderWidth: 1,
-          borderColor: '#ccc',
-          padding: 8,
-          marginVertical: 8,
-          borderRadius: 4,
-        }}
       />
       <Button title="Add" onPress={addTask} />
+      <Button title="Clear all" onPress={clearTasks} />
       {!todos.length && <Text>No tasks</Text>}
       <FlatList
         data={todos}
+        keyExtractor={(t) => t.id.toString()}
         renderItem={({ item, index }) => (
-          <TodoItem
-            title={item.title}
-            onDelete={() => removeTask(index)}
-            testID={`todo-${index}`}
-            id={index + 1}
-          />
+          <TodoItem title={item.title} onDelete={() => removeTask(index)} id={index + 1} />
         )}
       />
     </View>
