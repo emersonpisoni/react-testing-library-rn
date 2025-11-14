@@ -1,7 +1,7 @@
 import { render } from '@testing-library/react-native';
 import React from 'react';
-import * as api from '../../api/fake-api';
-import TodoListScreen from '../index';
+import * as api from '../api/fake-api';
+import TodoListScreen from '../app/index';
 
 describe('TodoListScreen async', () => {
   beforeEach(() => {
