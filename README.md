@@ -17,6 +17,50 @@ Testing Tropy (Kent C. Dodds):
   <source src="./assets/videos/todo.mp4" type="video/mp4">
 </video>
 
+------
+
+- `getBy` Queries
+   - The element must already be in the render tree.
+   - You want an immediate check.
+   - The UI is static or synchronous (no async state changes).
+
+   #### Behavior
+   - Throws immediately if not found.
+   - No retries, no waiting.
+
+- `queryBy` Queries
+   - You want to check if something is NOT on screen.
+   - You want an immediate check.
+
+   #### Behavior
+   - Returns null instead of throwing an error.
+
+- `findBy` Queries
+   - The element appears asynchronously (e.g. after fetch, animation, or effect).
+   - You need to wait automatically for the element to show.
+
+   #### Behavior
+   - Internally uses waitFor(() => getBy...).
+   - Retries every 50ms until success or timeout (default 1000ms).
+   - Quiet (no visible retries).
+
+- `waitFor`
+   - You need to wait for any custom condition to be true.
+   - You want to wait for state changes, text updates, or DOM mutations that are not covered by findBy.
+   - Ideal for assertions that aren’t just “element exists”.
+
+   #### Behavior
+   - Retries your callback until it does not throw.
+
+- `waitForElementToBeRemoved`
+   - You want to wait for an element to disappear.
+   - Commonly used for loading spinners, modals, or messages that should vanish.
+
+   #### Behavior
+   - Observes mutations in the rendered tree.
+   - Resolves automatically when the element is gone.
+   - Simpler and cleaner than manual waitFor loops.
+
 ## Questions to answer
 - Why use fireEvent and not use just document.getElementById("myElement").click()?
    - That is the way similar to user interactions in interface, if you do not do this, the React will not understand the event, and the lifecycle will not be triggered.
