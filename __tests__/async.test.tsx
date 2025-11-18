@@ -89,7 +89,7 @@ describe('waitFor vs findBy', () => {
   }, 15000);
 });
 
-describe('Comparing waitFor and waitForElementToBeRemoved', () => {
+describe('Comparing findBy, waitFor and waitForElementToBeRemoved', () => {
   beforeEach(() => {
     jest.spyOn(api, 'fakeApiWithFetch').mockResolvedValue(
       new Response(JSON.stringify([{ id: 1, title: 'Read a book' }]), {
