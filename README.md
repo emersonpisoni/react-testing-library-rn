@@ -72,6 +72,9 @@ Testing Tropy (Kent C. Dodds):
       - multiple async conditions
 - Is act mandatory for testing react?
    - It is mandatory in all cases that you have to wait React to complete its lifecycle, but in some cases like in fireEvents and findBySomething you do not need to explicit this, because it is already been done by RTL.
+- Why some events do not require act explicit?
+   - Because the events like fireEvent, findBy, waitFor for example are already wrapped by act.
+-  
 
 ### React Native
 
