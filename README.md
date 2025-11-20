@@ -74,7 +74,11 @@ Testing Tropy (Kent C. Dodds):
    - It is mandatory in all cases that you have to wait React to complete its lifecycle, but in some cases like in fireEvents and findBySomething you do not need to explicit this, because it is already been done by RTL.
 - Why some events do not require act explicit?
    - Because the events like fireEvent, findBy, waitFor for example are already wrapped by act.
--  
+- Which one is more performatic?
+   - In general, using waitFor with getByText is more performatic because when it find the solution, it stops immediately.
+      - It is faster but more unstable.
+   - For findBy... it is less performatic because it has to wait for some other flows, to complete the entire cycle and them finish the proccess.
+      - It is slower but more reliable.
 
 ### React Native
 
