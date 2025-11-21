@@ -1,11 +1,11 @@
 import { fakeApiWithFetch } from '@/api/fake-api';
 import React, { useCallback, useEffect, useState } from 'react';
 import { ActivityIndicator, Button, FlatList, Text, TextInput, View } from 'react-native';
-import TodoItem from '../components/todo-item';
+import TodoItem from '../../components/todo-item';
 
 type Todo = { id: number; title: string };
 
-export default function TodoListScreen() {
+export default function Tab() {
   const [task, setTask] = useState<Todo>({ id: 0, title: '' });
   const [todos, setTodos] = useState<Todo[]>([]);
   const [loading, setLoading] = useState(true);
@@ -17,10 +17,6 @@ export default function TodoListScreen() {
         const response = await fakeApiWithFetch();
         if (!response.ok) throw new Error('Network error');
         const data = await response.json();
-
-        await new Promise((resolve) => {
-          setTimeout(resolve, 2000);
-        });
 
         setTodos(data);
         setTask({ id: data.length + 1, title: '' });

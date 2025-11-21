@@ -1,6 +1,6 @@
 import { render, waitFor } from '@testing-library/react-native';
 import * as api from '../api/fake-api';
-import TodoListScreen from '../app/index';
+import TodoListScreen from '../app/(tabs)/index';
 
 describe('🧪 Performance – findBy vs waitFor', () => {
   beforeEach(() => {

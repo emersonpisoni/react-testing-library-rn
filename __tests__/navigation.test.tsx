@@ -1,8 +1,8 @@
 import { fireEvent, render } from '@testing-library/react-native';
 import React from 'react';
 import * as api from '../api/fake-api';
+import TodoListScreen from '../app/(tabs)/index';
 import DetailsScreen from '../app/details/[id]';
-import TodoListScreen from '../app/index';
 
 const mockPush = jest.fn();
 const mockBack = jest.fn();

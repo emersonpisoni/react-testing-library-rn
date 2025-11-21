@@ -61,6 +61,10 @@ Testing Tropy (Kent C. Dodds):
    - Resolves automatically when the element is gone.
    - Simpler and cleaner than manual waitFor loops.
 
+### Routing testing
+
+- Never test the real navigation, always test if the correct function was called.
+
 ## Questions to answer
 - Why use fireEvent and not use just document.getElementById("myElement").click()?
    - That is the way similar to user interactions in interface, if you do not do this, the React will not understand the event, and the lifecycle will not be triggered.
